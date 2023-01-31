@@ -6,12 +6,14 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Appx from './Appx';
 import Page from './Page';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <App /> */}
-  {/* <Appx/> */}
-  <Page/>
+  {/* <Appx/>  */}
+   <Page/>
+  {/* <Pagetask/> */}
   </React.StrictMode>
 );
 

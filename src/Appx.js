@@ -10,20 +10,21 @@ const Appx = () => {
   });
   const [loading,setLoading]=useState(false);
    const [currentPage,setCurrentPage]=useState(1);
-    const [postPerpage]=useState(10);
+   const postPerpage=50;
   
   
    useEffect(()=>{
-     const fetchPost=async()=>{
+     const fetchPost=async(currentValue)=>{
+    
       const offset=currentPage*postPerpage
-     
-
-           setLoading(true);
-           const res=await axios.get(`https://api-staging.es-pal.org/portal_api/individual/?limit=50&offset=${offset}`)
-           
-           setItem(res.data)
-           setLoading(false);
-     }
+  
+        setLoading(true);
+        const res=await axios.get(`https://api-staging.es-pal.org/portal_api/individual/?limit=${postPerpage}&offset=${offset}`)
+        
+        setItem(res.data)
+        setLoading(false);
+      
+  }
      fetchPost();
    },[])
    console.log("ressss",item)
@@ -42,7 +43,7 @@ const Appx = () => {
       <Posts item={currentPosts} loading={loading} />
       <Pagination
         postsPerPage={postPerpage}
-        totalPosts={item.results.length}
+        totalPosts={item.length}
         paginate={paginate}
       />
         
