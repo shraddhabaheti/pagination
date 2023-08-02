@@ -25,7 +25,7 @@ const Page = () => {
                 
                
             } else if(currentValue !== 1 || currentValue >1){
-                const offset=currentValue *perpage-50 
+                const offset=currentValue *perpage-50
 
                 const res = await fetch(`https://api-staging.es-pal.org/portal_api/individual/?limit=${perpage}&offset=${offset}`)
                 const item = await res.json();
@@ -90,7 +90,7 @@ const Page = () => {
                     }
                 </tbody>
             </Table>
-            <Pagination className="d-flex justify-content-center">
+            <Pagination className="d-flex justify-content-center" >
                 <button onClick={previous} disabled={curr == 0 ? true : false} >prev</button>
                 {item?.map(function (currentValue, index, arr) {
                    
@@ -101,7 +101,7 @@ const Page = () => {
                     );
                 })}
                 <button onClick={lastStep} disabled={curr === item.length ? true : false} >Next</button>
-             
+                
             </Pagination>
         </div>
     )
